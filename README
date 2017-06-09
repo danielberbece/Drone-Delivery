@@ -1,0 +1,77 @@
+
+	  		  Tema 3 - Structuri de Date
+		          ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		      Livrare de produse folosind drone
+
+	    1) Autor
+
+	Tema a fost realizata de Berbece Daniel, student al Facultatii de
+Automatica si Calculatoare din cadrul Universitatii Politehnica, Bucuresti,
+grupa 311CC, seria CC, anul 1, semestrul II.
+
+	    2) Detalii despre tema
+
+	Tema a fost compusa din 3 taskuri si un bonus, avand la baza sa
+dezvoltarea conceptului de graf orientat, prin analogia cu drumurile parcurse
+de o drona in livrarea de produse.
+	Primul task a presupus ca exista o singura ferma de la care drona se
+putea aproviziona, aceasta fiind nevoita sa treaca pe la ferma inainte de orice
+livrare.
+	Taskul al doilea a fost asemanator cu primul, doar ca de data aceasta
+aveam mai multe ferme de la care drona se putea aproviziona, asa ca problema
+devenea in gasirea celei mai apropiate ferme pentru ca drona sa se aprovizioneze
+	Taskul trei a fost ceva mai complex. De data aceasta au existat mai
+multe ferme, fiecare ferma putand fi de alt tip, adica fiecare ferma detinea
+o anumita categorie de produse(1, 2, ...). Fiecare comanda data avea si un tip
+de produs, ceea ce insemna ca drona se putea aproviziona pentru o anumita
+comanda de la fermele care detineau produsele din aceasta categorie. Pe langa
+acest aspect, deoarece proprietarul a dorit o imbunatatire si mai mare a
+livrarilor, acesta a dorit ca drona sa livreze comenzile intr-o ordine in care
+se obtine maximul de eficienta, anume drumul minim parcurs de drona.
+	Fata de celelalte taskuri, unde am avut de a face doar cu o singura
+drona, pentru bonus am avut mai multe drone, fiecare operand pe o anumita zona
+a grafului orientat.
+
+	    3) Detalii de implementare
+	
+	Avand in vedere ca dorim sa gasim drumul minim parcurs de drona la toate
+taskurile, inclusiv bonus, programul calculeaza, prin algoritmul lui Floyd,
+matricea de drumuri minime inca de la crearea grafului in functia CreateGraph.
+O mare parte din citire se face inca din main, deoarece fisierul de intrare este
+aproape identic in toate cazurile. Dupa ce s-a creat graful, in functie de
+taskul citit, mergem pe unul din ele in functii separate.
+	Din punct de vedere al dificultatii, taskul 1 a fost cel mai usor,
+deoarece exista o singura ferma, prin urmare drona trebuie sa se intoarca mereu
+la aceeasi ferma. La taskul 2, existand mai multe ferme, am schimbat algoritmul.
+Acum, se calculeaza drumul minim de la nodul curent in care se afla drona pana 
+la urmatorul, cu escala printr-o ferma pentru ca drona sa preia produsul pentru
+comanda. Daca am calcula drumul minim de la un nod la o ferma, si apoi de la
+ferma la nodul urmator, e posibil ca drumul sa fie scurt pana la ferma, dar mult
+mai lung pana la urmatorul nod.
+	La taskul 3, deoarece vrem sa gasim drumul minim, prin permutarea
+comenzilor, apelam functia back pentru a gasi drumul minim parcurs. Dupa ce am
+gasit drumul minim, secventa de comenzi, apelam functia ShowFullPathAndDistance
+care afiseaza drumul, nod cu nod, al dronei, pentru o secventa de noduri date,
+prin vector, impreuna cu tipurile comenzilor, pentru a sti prin ce tipuri de
+ferme trebuie ca drona sa treaca.
+	La bonus, pentru identificarea zonelor in care se afla drone, adica a
+componentelor tare conexe, programul foloseste algoritmul lui Kosaraju. Pentru
+fiecare componenta componenta descoperim secventa minima a comenzilor din acea
+zona, tot prin metoda backtracking. Pentru fiecare drum minim dintr-o zona, se
+afiseaza la sfarsit si profitabilitatea zonei, in functie de alfa si beta citite
+la intrare.
+
+	    4) Competente evaluate
+
+	Aceasta tema a presupus aprofundarea urmatoarelor notiuni: graf ponderat, matrice de adiacenta, crearea unei matrice de distante si de nexthop-uri,
+algoritmul lui Floyd, algoritmul lui Kosaraju, parcurgere in adancime, 
+componente tare conexe, generarea de permutari prin metoda backtracking, stiva,
+alocare dinamica.
+
+	    5) Observatii
+
+	Dupa parerea mea, tema a fost de nota 8 ca dificultate, iar fata de alte
+teme a presupus o aprofundare mai buna a structurilor de date de tip graf.
+	Durata efectiva a implementarii: 10 ore
+	
