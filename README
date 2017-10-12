@@ -64,9 +64,10 @@ la intrare.
 
 	    4) Competente evaluate
 
-	Aceasta tema a presupus aprofundarea urmatoarelor notiuni: graf ponderat, matrice de adiacenta, crearea unei matrice de distante si de nexthop-uri,
-algoritmul lui Floyd, algoritmul lui Kosaraju, parcurgere in adancime, 
-componente tare conexe, generarea de permutari prin metoda backtracking, stiva,
+	Aceasta tema a presupus aprofundarea urmatoarelor notiuni: graf ponderat,
+matrice de adiacenta, crearea unei matrice de distante si de nexthop-uri,
+algoritmul lui Floyd, algoritmul lui Kosaraju, parcurgere in adancime, componente
+tare conexe, generarea de permutari prin metoda backtracking, stiva,
 alocare dinamica.
 
 	    5) Observatii
